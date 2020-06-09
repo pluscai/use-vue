@@ -106,13 +106,37 @@ vue中用`v-on`指令，监听处理用户交互；`v-model`的双向数据绑�
 
 
 
-
-
-
-
-
-
 ## 1.3 The Vue Instance
+
+### Creating a Vue Instance
+
+```vue
+var vm = new Vue({
+  // options
+})
+```
+
+>  When you create a Vue instance, you pass in an **options object**. The majority of this guide describes how you can use these options to create your desired behavior.
+
+整个文档就是关于如何写options里的代码来达到目的。
+
+
+
+### Data and Methods
+
+- 数据改变，视图层会re-render，这点和React是一样的
+
+- vue实例本身也提供了一些有用的方法和属性，以`$`开头（和用户自定义的属性作区分）
+
+
+
+### Instance Lifecycle Hooks
+
+
+
+
+
+
 
 ## 1.4 Template Syntax
 
