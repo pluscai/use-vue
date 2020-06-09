@@ -40,8 +40,6 @@ Content Security Policy(CSP)环境中不能使用`new Function`,而vue的编译�
 
 
 
-
-
 ## 1.2 Introduction
 
 ### What is Vue.js
@@ -51,6 +49,62 @@ Content Security Policy(CSP)环境中不能使用`new Function`,而vue的编译�
 - 可以整合进其他库、项目，也可以开发单页面应用  
 
 和react的介绍如此相像啊！
+
+
+
+### Getting Started
+
+> We **do not** recommend that beginners start with `vue-cli`, especially if you are not yet familiar with Node.js-based build tools
+
+构建工具都是基于 Node.js的
+
+
+
+### Declarative Rendering
+
+>  At the core of Vue.js is a system that enables us to declaratively render data to the DOM using straightforward template syntax
+
+声明式渲染，指的数据渲染和markup标记揉杂在一起，例如：
+
+```vue
+<div id="app">
+  {{ message }}
+</div>
+```
+
+
+
+### Conditonals and Loops
+
+```vue
+<div id="app-3">
+  <span v-if="seen">Now you see me</span>
+</div>
+```
+
+> This example demonstrates that we can bind data to not only text and attributes, but also the **structure** of the DOM
+
+不仅可以将数据与文本、属性值绑定，还能绑定DOM结构、动画效果（DOM元素进行增删改时的动画效果），非常强大哦~
+
+
+
+### Handling User Input
+
+> To let users interact with your app, we can use the `v-on` directive to attach event listeners that invoke methods on our Vue instances
+
+vue中用`v-on`指令，监听处理用户交互；`v-model`的双向数据绑定真是香。
+
+
+
+### Composing with Components
+
+> This is a contrived example, but we have managed to separate our app into two smaller units, and the child is reasonably well-decoupled from the parent via the props interface. We can now further improve our `<todo-item>` component with more complex template and logic without affecting the parent app.
+
+原来Vue中的父组件给子组件传递数据也是用的`props`,跟react是一样的。
+
+
+
+
 
 
 
