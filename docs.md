@@ -32,17 +32,31 @@ Vue官方提供了CLI工具，快速搭建一个应用，并内置了热重载�
 
 在webpack类似打包工具中，需要自己通过配置方式从开发模式切换到生产模式。
 
+
+
 #### CSP environment
 
 Content Security Policy(CSP)环境中不能使用`new Function`,而vue的编译过程（计算表达式时）恰恰依赖此特性，但是runtime-only的构建方式兼容CSP环境，因为不需要编译。
 
 
 
-### Dev Build
-
 
 
 ## 1.2 Introduction
+
+### What is Vue.js
+
+- 渐进式框架、核心代码专注于视图层；
+
+- 可以整合进其他库、项目，也可以开发单页面应用  
+
+和react的介绍如此相像啊！
+
+
+
+
+
+
 
 ## 1.3 The Vue Instance
 
