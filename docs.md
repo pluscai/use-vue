@@ -104,8 +104,6 @@ vue中用`v-on`指令，监听处理用户交互；`v-model`的双向数据绑�
 
 
 
-
-
 ## 1.3 The Vue Instance
 
 ### Creating a Vue Instance
