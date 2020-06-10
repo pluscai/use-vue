@@ -132,13 +132,23 @@ var vm = new Vue({
 
 ### Instance Lifecycle Hooks
 
+> Each Vue instance goes through a series of initialization steps when it’s created - for example, it needs to set up data observation, compile the template, mount the instance to the DOM, and update the DOM when data changes. Along the way, it also runs functions called **lifecycle hooks**, giving users the opportunity to add their own code at specific stages.
 
+实例的生命周期钩子，相当于在实例创建的各个阶段提供的API，让开发者可以在各个阶段加入自己的代码逻辑控制。
 
+### Lifecycle Diagram
 
+生命周期以及各个钩子函数的图表表示
+
+<img src="assets/lifecycle.png" alt="The Vue Instance Lifecycle" style="zoom: 50%;" />
 
 
 
 ## 1.4 Template Syntax
+
+
+
+
 
 ## 1.5 Computed Properties and Watchers
 
