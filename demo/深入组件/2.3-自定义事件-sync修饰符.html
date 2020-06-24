@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>sync修饰符</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="dynamic-component-demo">
+  <!--  <text-document
+            v-bind:title="doc.title"
+            v-on:update:title="doc.title = $event"
+    ></text-document>-->
+
+    <!-- .sync这种写法是上面写法的简写方式 -->
+    <text-document v-bind:title.sync="doc.title"></text-document>
+</div>
+
+<script>
+    Vue.component('text-document', {
+        props: ['title'],
+        template: `
+            <div>
+                <h1>{{title}}</h1>
+                <button v-on:click="changeTitle">change title</button>
+            </div>
+          `
+        ,
+        methods: {
+            changeTitle: function () {
+                // 改变了父组件中title属性的值，实现了双向数据绑定
+                this.$emit('update:title', 'new Title');
+            }
+        }
+    })
+
+    new Vue({
+        el: "#dynamic-component-demo",
+        data: {
+            doc: {
+                title: 'hello vue'
+            }
+        }
+    });
+</script>
+</body>
+</html>

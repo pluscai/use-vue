@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My first Vue app</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="blog-posts-events-demo">
+    <input v-model="searchText">
+
+    <input
+            v-bind:value="searchText"
+            v-on:input="searchText = $event.target.value"
+    >
+
+    <custom-input
+            v-bind:value="searchText"
+            v-on:input="searchText = $event"
+    ></custom-input>
+    <custom-input v-model="searchText"></custom-input>
+</div>
+<script>
+
+
+    Vue.component('custom-input', {
+        props: ['value'],
+        template: `
+            <input
+              v-bind:value="value"
+              v-on:input="$emit('input', $event.target.value)"
+            >
+          `
+    })
+    new Vue({
+        el: '#blog-posts-events-demo',
+        data: {
+            searchText: 1,
+
+        },
+
+    })
+</script>
+
+
+</body>
+</html>

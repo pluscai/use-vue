@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My first Vue app</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="example">
+    <input v-on:keyup.page-down="onPageDown($event)">
+    <a v-on:click.middle="onPageDown">ddd</a>
+
+    <select v-model="selected">
+        <option v-for="option in options" v-bind:value="option.value">
+            {{ option.text }}
+        </option>
+    </select>
+    <span>Selected: {{ selected }}</span>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#example',
+        data: {
+            selected: 'B',
+            options: [
+                { text: 'One', value: 'A' },
+                { text: 'Two', value: 'B' },
+                { text: 'Three', value: 'C' }
+            ]
+        },
+        methods: {
+            onPageDown: function (event) {
+                console.log('1');
+                console.log(event.key)
+            }
+        }
+    })
+</script>
+</body>
+</html>

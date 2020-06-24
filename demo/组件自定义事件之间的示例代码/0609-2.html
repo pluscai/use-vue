@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<script>
+    var data = { a: 1 }
+
+    // The object is added to a Vue instance
+    var vm = new Vue({
+        data: data
+    })
+
+    console.log(vm.a == data.a);
+    vm.a = 2;
+    console.log(data.a);
+
+    vm.b = 'hi';
+    console.log(vm.b);
+    console.log(data.b);
+</script>
+</body>
+</html>

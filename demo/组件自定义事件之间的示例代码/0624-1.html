@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Components Example</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="dynamic-component-demo" class="demo">
+    <base-checkbox v-model="lovingVue"></base-checkbox>
+</div>
+
+<script>
+
+    Vue.component('base-checkbox', {
+        model: {
+            prop: 'checked',
+            event: 'change'
+        },
+        props: {
+            checked: Boolean
+        },
+        template: `
+<div>
+    <input
+      type="checkbox"
+      v-bind:checked="checked"
+      v-on:change="$emit('change', $event.target.checked)"
+    >
+    </div>
+  `
+    })
+    new Vue({
+        el: "#dynamic-component-demo",
+        data: {
+            lovingVue: true,
+        }
+    });
+</script>
+</body>
+</html>

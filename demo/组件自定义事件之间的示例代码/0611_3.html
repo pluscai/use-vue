@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My first Vue app</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="watch-example">
+    <template v-if="loginType === 'username'">
+        <label>Username</label>
+        <input placeholder="Enter your username"  key="username-input">
+    </template>
+    <template v-else>
+        <label>Email</label>
+        <input placeholder="Enter your email address"  key="email-input">
+    </template>
+    <button @click="toggle">toggle</button>
+
+    <h1 v-if="ok">Hello!</h1>
+</div>
+
+<script>
+    var watchExampleVM = new Vue({
+        el: '#watch-example',
+        data: {
+            loginType: 'username',
+            ok:false
+        },
+        /*watch: {
+            // whenever question changes, this function will run
+            question: function (newQuestion, oldQuestion) {
+                this.answer = 'Waiting for you to stop typing...'
+                this.debouncedGetAnswer()
+            }
+        },*/
+
+        methods: {
+            toggle:function () {
+                if(this.loginType == 'username'){
+                    this.loginType = 'useremail'
+                }else {
+                    this.loginType = 'username'
+                }
+
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

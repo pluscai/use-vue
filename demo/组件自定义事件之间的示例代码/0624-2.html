@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Components Example</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="dynamic-component-demo" class="demo">
+    <base-checkbox v-on:add-size="doSomething"></base-checkbox>
+</div>
+
+<script>
+
+    Vue.component('base-checkbox', {
+        template: `
+            <button v-on:click="$emit('add-size')">按钮</button>
+          `
+    })
+    new Vue({
+        el: "#dynamic-component-demo",
+        data: {
+            lovingVue: true,
+        },
+        methods: {
+            doSomething: function () {
+                alert(1);
+            }
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="example">
+    <span>Message: {{ a }}</span>
+    <br>
+    <span v-on:[name]="fuc">This will never change: {{ msg }}</span>
+    <br>
+    <span v-once>This will never change: {{ msg }}</span>
+    <br>
+    <p>Using mustaches: {{ rawHtml }}</p>
+    <p>Using v-html directive: <span v-html="rawHtml"></span></p>
+
+    <button v-bind:disabled="isButtonDisabled">Button</button>
+</div>
+<script>
+    var data = {
+        a: 1,
+        rawHtml:"<span style='color:red'>This red</span>",
+        isButtonDisabled:true,
+        msg:'hello',
+        name:'click'
+    }
+    var vm = new Vue({
+        el: '#example',
+        data: data,
+        created: function () {
+            // `this` points to the vm instance
+            console.log('a is: ' + this.a)
+        },
+        methods:{
+            fuc:function () {
+                alert(1);
+            }
+        }
+    })
+
+   /* console.log(vm.$data === data); // => true
+    console.log(vm.$el === document.getElementById('example')); // => true
+
+    // $watch is an instance method
+    vm.$watch('a', function (newValue, oldValue) {
+        console.log("新值是："+newValue);
+        // This callback will be called when `vm.a` changes
+    })*/
+
+
+</script>
+</body>
+</html>

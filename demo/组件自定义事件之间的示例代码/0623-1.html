@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Components Example</title>
+    <script src="../vue.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="dynamic-component-demo" class="demo">
+
+    <blog-post v-bind:post="author" class="bb"></blog-post>
+</div>
+
+<script>
+    function Person (firstName, lastName) {
+        this.firstName = firstName
+        this.lastName = lastName
+    }
+
+    var p1 = new Person('c','sx');
+
+    var p2 = {
+        firstName:'a',
+        lastName:'b'
+    }
+
+    Vue.component('blog-post', {
+        props: {
+            post: Person
+        },
+        //props: ['post'],
+        template:"<div class='aa'>{{post.firstName}}</div>"
+    })
+    new Vue({
+        el: "#dynamic-component-demo",
+        data: {
+            author:p1
+        }
+    });
+</script>
+</body>
+</html>

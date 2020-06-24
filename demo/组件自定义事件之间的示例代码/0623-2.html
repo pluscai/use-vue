@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Components Example</title>
+    <script src="../vue.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="dynamic-component-demo" class="demo">
+
+    <base-input
+            data-date-picker="activated"
+            v-bind:label="pleae"
+            label2="dd"
+            v-bind:value="aa"
+            v-model="username"
+            required
+            placeholder="Enter your username"
+    ></base-input>
+</div>
+
+<script>
+
+    Vue.component('base-input', {
+        inheritAttrs: false,
+        props: ['label', 'value'],
+        template: `
+    <label>
+      {{ label }}
+      <input
+        v-bind="$attrs"
+        v-bind:value="value"
+        v-on:input="$emit('input', $event.target.value)"
+      >
+    </label>
+  `
+    })
+    new Vue({
+        el: "#dynamic-component-demo",
+        data: {
+            aa:1,
+            username:'cc',
+            pleae:'pleae'
+        }
+    });
+</script>
+</body>
+</html>
