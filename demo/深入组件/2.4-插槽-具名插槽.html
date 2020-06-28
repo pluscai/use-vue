@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>插槽内容、编译作用域、默认内容</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="dynamic-component-demo">
+    <base-layout>
+        <template v-slot:header>
+            <h1>Here might be a page title</h1>
+        </template>
+
+        <template v-slot:default>
+            <p>A paragraph for the main content.</p>
+            <p>And another one.</p>
+        </template>
+
+        <template v-slot:footer>
+            <p>Here's some contact info</p>
+        </template>
+    </base-layout>
+</div>
+
+<script>
+    Vue.component('base-layout', {
+        props: ['title'],
+        template: `
+            <div class="container">
+                <header>
+                    <slot name="header"></slot>
+                </header>
+                <main>
+                    <slot></slot>
+                </main>
+                <footer>
+                    <slot name="footer"></slot>
+                </footer>
+            </div>
+          `
+        ,
+        methods: {
+            changeTitle: function () {
+                // 改变了父组件中title属性的值，实现了双向数据绑定
+                this.$emit('update:title', 'new Title');
+            }
+        }
+    })
+
+    new Vue({
+        el: "#dynamic-component-demo",
+        data: {
+            doc: {
+                title: 'hello vue'
+            }
+        }
+    });
+</script>
+</body>
+</html>

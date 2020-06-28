@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>插槽内容</title>
+    <meta charset="UTF-8">
+    <title>插槽内容、编译作用域、默认内容</title>
     <script src="../vue.js"></script>
 </head>
 <body>
@@ -13,9 +14,15 @@
 
     <!-- .sync这种写法是上面写法的简写方式 -->
     <text-document v-bind:title.sync="doc.title">
-        <span style="color:red">slot can also be html</span>
+        <!--<span style="color:red">slot can also be html</span>
         Slot Content
+        <br>
+        编译作用域：能够访问作用域中的doc
+         {{doc.title}}-->
     </text-document>
+
+
+
 </div>
 
 <script>
@@ -26,7 +33,7 @@
                 <h1>{{title}}</h1>
                 <button v-on:click="changeTitle">change title</button>
                 <br>
-                <slot></slot>
+                <slot>如果插槽里没有内容，就显示这里的默认内容</slot>
             </div>
           `
         ,
