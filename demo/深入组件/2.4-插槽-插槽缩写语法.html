@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>作用域插槽</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="dynamic-component-demo">
+   <!-- <current-user v-slot="slotProps">
+        {{ slotProps.user.firstName }}
+    </current-user>-->
+
+    <current-user v-slot="{ user }">
+        {{ user.firstName }}
+    </current-user>
+</div>
+
+<script>
+    Vue.component('current-user', {
+        data: function () {
+            return {
+                user: {
+                    firstName: 'cc',
+                    lastName: 'sx'
+                }
+            }
+        },
+        template: `
+            <span>
+              <slot v-bind:user="user">
+                  {{user.lastName}}
+              </slot>
+            </span>
+        `
+    })
+
+    new Vue({
+        el: "#dynamic-component-demo",
+    });
+</script>
+</body>
+</html>
