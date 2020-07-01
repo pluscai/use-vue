@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<script>
+    // The root Vue instance
+    new Vue({
+        data: {
+            foo: 1
+        },
+        created:function(){
+            // 获取根组件的数据
+            console.log(this.$root.foo); // 1
+            // 写入根组件的数据
+            this.$root.foo = 2
+
+            // 访问根组件的计算属性
+            this.$root.bar;
+        },
+        computed: {
+            bar: function () {
+                alert('我是计算属性bar，只要有人访问我或者改变我的值，我就执行')
+            }
+        },
+        methods: {
+            baz: function () {
+                alert('baz')
+            }
+        }
+    })
+
+
+
+</script>
+</body>
+</html>

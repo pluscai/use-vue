@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue.js"></script>
+    <script src="../vuex.js"></script>
+</head>
+<body>
+<script>
+    const store = new Vuex.Store({
+        state: {
+            foo: 1
+        },
+        mutations: {
+            increment (state) {
+                state.foo++
+            }
+        }
+    })
+    // The root Vue instance
+    new Vue({
+        store: store,
+        created:function(){
+            // 获取根组件的数据
+            console.log(this.$store.state.foo); // 1
+            // 写入根组件的数据
+            this.$store.commit('increment')
+
+            console.log(this.$store.state.foo) // 2
+        },
+        computed: {
+            bar: function () {
+                alert('我是计算属性bar，只要有人访问我或者改变我的值，我就执行')
+            }
+        },
+        methods: {
+            baz: function () {
+                alert('baz')
+            }
+        }
+    })
+
+
+
+</script>
+</body>
+</html>
