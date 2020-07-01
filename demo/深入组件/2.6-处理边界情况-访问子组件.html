@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dependency Injection Google Maps Demo</title>
+    <script src="../vue.js"></script>
+
+</head>
+<body>
+<div id="app">
+    <base-input ref="usernameInput"></base-input>
+</div>
+
+<script>
+    Vue.component("base-input", {
+        template: "<input type='input' ref='input'>",
+        methods: {
+            popUp() {
+                alert(11)
+            },
+            focus: function () {
+                this.$refs.input.focus()
+            }
+        }
+    });
+
+    new Vue({
+        el: "#app",
+        data: {},
+        mounted: function () {
+            this.$refs.usernameInput.popUp();
+            this.$refs.usernameInput.focus();
+        }
+    });
+</script>
+</body>
+</html>
