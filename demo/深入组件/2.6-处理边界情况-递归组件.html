@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dependency Injection Google Maps Demo</title>
+    <script src="../vue.js"></script>
+
+</head>
+<body>
+<div id="app">
+    <base-input></base-input>
+</div>
+
+<script>
+    Vue.component("base-input", {
+        name: 'stack-overflow',
+        template: '<div><stack-overflow></stack-overflow></div>'
+    });
+
+    new Vue({
+        el: "#app",
+        data: {}
+    });
+</script>
+</body>
+</html>
